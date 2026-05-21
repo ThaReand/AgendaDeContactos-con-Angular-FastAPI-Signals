@@ -1,0 +1,286 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
+
+/* ==========================================================
+   BASE GLOBAL
+   ========================================================== */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 32%),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.08), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+  color: #172033;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   TOPBAR
+   ========================================================== */
+
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 74px;
+  padding: 0 24px;
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #0f172a !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.toolbar-inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+
+.brand-text {
+  display: grid;
+  gap: 2px;
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brand-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ==========================================================
+   LAYOUT GENERAL
+   ========================================================== */
+
+.page-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 24px 42px;
+}
+
+.hero-panel {
+  margin-bottom: 24px;
+  padding: 28px 30px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.92));
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-panel h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+.hero-description {
+  margin: 0;
+  max-width: 780px;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* ==========================================================
+   TARJETAS Y ELEMENTOS GENERALES
+   ========================================================== */
+
+.soft-card {
+  border-radius: 24px !important;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.75) inset !important;
+}
+
+.mat-mdc-card-content:last-child {
+  padding-bottom: 20px;
+}
+
+.mat-mdc-card-content {
+  padding-top: 6px !important;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-text-field-wrapper {
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.mdc-text-field--outlined {
+  --mdc-outlined-text-field-outline-color: rgba(148, 163, 184, 0.42);
+  --mdc-outlined-text-field-hover-outline-color: rgba(59, 130, 246, 0.62);
+  --mdc-outlined-text-field-focus-outline-color: #2563eb;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 960px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-toolbar {
+    height: auto;
+    min-height: 70px;
+    padding: 12px 16px;
+  }
+
+  .page-shell {
+    padding: 20px 16px 32px;
+  }
+
+  .hero-panel {
+    padding: 22px 18px;
+    border-radius: 22px;
+  }
+
+  .brand-title {
+    font-size: 1.08rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.8rem;
+  }
+}
+
+
+.chip-Personal,
+.chip-Familia,
+.chip-Trabajo {
+  border-radius: 999px !important;
+}
+
+/* CHIP PERSONAL (Azul) */
+.chip-Personal.mat-mdc-chip-selected .mdc-evolution-chip__action {
+  border-radius: 999px !important;
+  background-color: #bf8cdf !important; 
+}
+.chip-Personal.mat-mdc-chip-selected .mdc-evolution-chip__text-label {
+  color: #ffffff !important;
+}
+
+/* CHIP FAMILIA (Verde) */
+.chip-Familia.mat-mdc-chip-selected .mdc-evolution-chip__action {
+  border-radius: 999px !important;
+  background-color: #5ba78d !important; 
+}
+.chip-Familia.mat-mdc-chip-selected .mdc-evolution-chip__text-label {
+  color: #ffffff !important;
+}
+
+/* CHIP TRABAJO (Ámbar) */
+.chip-Trabajo.mat-mdc-chip-selected .mdc-evolution-chip__action {
+  border-radius: 999px !important;
+  background-color: #f59e0b !important; 
+}
+.chip-Trabajo.mat-mdc-chip-selected .mdc-evolution-chip__text-label {
+  color: #ffffff !important;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 40,
+  'GRAD' 0,
+  'opsz' 24
+}
